@@ -1,25 +1,58 @@
-import logo from './logo.svg';
+import React, { useReducer, useEffect, useState, useContext } from 'react';
+import MyRouter from './components/MyRouter';
+import NavBar from './components/NavBar';
+import AppReducer from './components/store/AppReducer';
+import AppContext from './components/store/AppContext';
+import axios from 'axios';
 import './App.css';
+import Home from './components/pages/Home';
 
 function App() {
+  const initialState = []
+
+  const [app, setApp] = useReducer(AppReducer,initialState);
+  const [users, setUsers] = useState([]);
+  const [on, setOn] =useState(false);
+  const AppContext = React.createContext ();
+  
+  
+
+  useEffect(() => {
+    let url = 'https://65e15639d3db23f7624ace30.mockapi.io/Users';
+    const getUsers = async () => {
+      let res = await axios.get(url)
+      setApp({type: 'loadedUsers', payload:res.data})
+    }
+    getUsers()
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AppContext.Provider value={{app,setApp}} >
+      <div className="App-header">
+        <NavBar/>
+        Fitness App
+        <MyRouter />
+
+
+      </div>
+
+    </AppContext.Provider>
+    
+  );
+
+
+
+}
+
+function Board() {
+  const value =  useContext(AppContext);
+  return (
+    <div>
+      <h1> {value}</h1>
+      <Home/>
     </div>
   );
 }
+
 
 export default App;
