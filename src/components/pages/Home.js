@@ -1,15 +1,17 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import videoBackground from './videoBackground.mp4'; // Added space after 'from'
+import { useNavigate } from 'react-router-dom'; 
+import videoBackground from './videoBackground.mp4';
 
-//This is the homepage of my app that contains a header entitled "Unique Fitness App"
-//and the slogan "Fitness Your Way". It also contains a button that the user can click on to be taken to the User Info Page that contains the Dashboard. That is what the handleGetStarted function is for.
-    const Home = () => {
+const Home = () => {
+    const navigate = useNavigate(); 
+
     const handleGetStarted = () => {
+        navigate('/userinfo'); // Directly navigate to the '/userinfo' route       
     };
 
     return (
-        <div className="homepage">
+        <div className="home">
             <video autoPlay loop muted className="video-background">
                 <source src={videoBackground} type="video/mp4"/>
             </video>

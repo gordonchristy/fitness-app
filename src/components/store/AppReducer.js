@@ -1,23 +1,35 @@
-//This reducer helps managed state updates in react using the Redux library. Not sure if I should use user.name in the deleteUser case or user.id.
+import { configureStore } from "@reduxjs/toolkit";
 
+// Define initial state
+const initialState = {
+    redirectToUserInfoPage: false,
+    // other initial state variables
+};
 
+// Action types
+const REDIRECT_TO_USER_INFO_PAGE = 'app/REDIRECT_TO_USER_INFO_PAGE';
 
-const appReducer = (state, action) => {
-    let newState = { ...state };
-    const { type, payload } = action;
+// Action creators
+export const redirectToUserInfoPage = () => ({
+    type: REDIRECT_TO_USER_INFO_PAGE
+});
 
-    switch (type) {
-        case 'nameChange':
-            newState.user.name = payload;
-            return newState;
-        case 'deleteUser':
-            // Filter out the user with the specified name
-            newState.user = newState.user.filter(user => user.name !== payload);
-            return newState;
+// Reducer function
+const appReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case REDIRECT_TO_USER_INFO_PAGE:
+            return {
+                ...state,
+                redirectToUserInfoPage: true,
+            };
         default:
-            console.log('No type matched ', type);
-            return newState;
+            return state;
     }
-}
+};
 
-export default appReducer;
+const store = configureStore({
+    reducer: appReducer,
+    // Optionally, you can include middleware here if needed
+});
+
+export default store;

@@ -5,9 +5,9 @@ function MealList({ meals }) {
     <div>
       <h2>Meal List</h2>
       <ul>
-        {meals.map((meal, index) => (
+        {meals.map((meals, index) => (
           <li key={index}>
-            <strong>{meal.meal}</strong> - {meal.date}
+            <strong>{meals.calories}</strong> - {meals.id}
           </li>
         ))}
       </ul>

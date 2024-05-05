@@ -14,7 +14,7 @@ function YogaExample() {
       <Row>
         <Col xs={6} md={4}>
           <a href={yogaLink} target="_blank" rel="noopener noreferrer">
-            <Image src="direct_image_url_goes_here" rounded />
+            <Image src="https://www.pexels.com/photo/low-angle-view-of-woman-relaxing-on-beach-against-blue-sky-317157/" rounded />
           </a>
         </Col>
       </Row>
