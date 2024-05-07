@@ -13,9 +13,6 @@ function NavBar() {
                 <Link to='/userinfo'>
                     <button>User Info Page</button>
                 </Link>
-                <Link to='/meallist'>
-                    <button>Meal List</button>
-                </Link>
             </ul>
         </div>
     )

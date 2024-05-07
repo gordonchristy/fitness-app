@@ -2,7 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color:  darkmagenta ;
+  flex-direction: column;
+  margin: auto;
+  width: 800px;
+  height: 600px;
   color: gainsboro
 }
 /* styles.css */
@@ -34,8 +37,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  background-color: rgb(95, 95, 139);
   justify-content: space-around;
   overflow-y: scroll;
+  padding: 5%
 }
 .ucard {
   border: solid green 2px;
@@ -51,10 +56,9 @@
   width: 100%;
   min-height: 10vh;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   color: #fff;
-  background: rgba(29, 161, 242, 1);
+  background: rgba(95, 95, 139);
 }
 
 .nav-links {
@@ -62,6 +66,33 @@
   text-decoration: none;
   width: 40%;
   display: flex;
-  justify-content: space-around;
   list-style: none;
+}
+
+.carousel {
+  justify-content: center;
+  justify-items: normal;
+  align-items: center;
+  contain:layout;
+  text-align: center;
+  height: 40%;
+  width: 100%;
+  
+}
+  
+h3 {
+  color: purple;
+}
+
+p {
+  color: purple;
+}
+.dboard {
+  background-color: rgba(95, 95, 139);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -37,7 +37,7 @@ function MealForm({ onAddMeal }) {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button className= 'button' variant="primary" type="submit">
         Add Meal
       </Button>
     </Form>

@@ -8,31 +8,32 @@ import WorkoutImage3 from './WorkoutImage3.js';
 
 function WorkoutVideos () {
     return (
-    <Carousel fade>
-      <Carousel.Item>
-        <WorkoutImage1 text="First slide" />
-        <Carousel.Caption>
-          <h3>Pilates </h3>
-          <p>Click on the link to watch a Pilates Video.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <WorkoutImage2 text="Second slide" />
-        <Carousel.Caption>
-          <h3>Yoga </h3>
-          <p>Click on the link to watch a Yoga Video.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <WorkoutImage3 text="Third slide" />
-        <Carousel.Caption>
-          <h3>Weight Training</h3>
-          <p>
-            Click on the link to watch a Weight Training Video.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+      <div className='carousel'>
+        <h1>Fitness Videos</h1>
+        <Carousel fade>
+          <Carousel.Item>
+            <WorkoutImage1 text="First slide" />
+            <Carousel.Caption>
+              <h3>Pilates </h3>
+              <p>Click on the link to watch a Pilates Video.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <WorkoutImage2 text="Second slide" />
+            <Carousel.Caption>
+              <h3>Yoga </h3>
+              <p>Click on the link to watch a Yoga Video.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <WorkoutImage3 text="Third slide" />
+            <Carousel.Caption>
+              <h3>Weight Training</h3>
+              <p>Click on the link to watch a Weight Training Video.</p>
+          </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+    </div>
   );
 }
 

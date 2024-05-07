@@ -1,19 +1,38 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import Dashboard from '../Dashboard';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import VideoCarousel from '../VideoCarousel';
+import Gallery from '../Gallery';
+import MealForm from '../MealForm';
+import UserCard from '../UserCard';
 
+function Dashboard() {
+    const [meals, setMeals] = useState([]);
+    const [users, setUsers] = useState([]);
 
-//This is the User Info Page that contains the Dashboard component its components (the gallery component that houses the user cards pulled from the mockapi link, the video carousel that houses fitness video links from YouTube, and the meal form that enables a user to input his or her meals.)
+    useEffect(() => {
+        // Fetch users data from the mock API
+        axios.get('https://65e15639d3db23f7624ace30.mockapi.io/users')
+            .then(response => {
+                // Set the users state with the data received from the API
+                setUsers(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching users:', error);
+            });
+    }, []); // Empty dependency array ensures the effect runs only once, when the component mounts
 
+    const addMeal = (newMeal) => {
+        setMeals([...meals, newMeal]);
+    };
 
+    return (
+        <div className='dboard'>
+            {/* Pass users data to the Gallery component */}
+            <Gallery users={users} />
+            <VideoCarousel  />
+            <MealForm onAddMeal={addMeal} />
+        </div>
+    );
+}
 
-function UserInfoPage () {
-  return (
-    <div className='userpage'>
-      <h6>UserInfoPage</h6>
-            <Link to = {Dashboard}>Go to Dashboard</Link>
-    </div>
-  );
-};
-
-export default UserInfoPage;
+export default Dashboard;

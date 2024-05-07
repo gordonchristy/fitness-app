@@ -17,7 +17,7 @@ const Home = () => {
             </video>
             <div className="content">
                 <h1>Unique Fitness App</h1>
-                <p>Fitness Your Way</p>
+                <h4>Fitness Your Way</h4>
                 <Button variant="primary" onClick={handleGetStarted}>Get Started</Button>
             </div>
         </div>
